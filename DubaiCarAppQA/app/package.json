@@ -1,0 +1,22 @@
+{
+  "name": "DubaiCarQA",
+  "main": "app.js",
+  "version": "1.0",
+  "author": "OnlieDubai",
+  "description": "OnlieDubai",
+  "keywords": [
+    "dubai",
+    "second hand car"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/magicyuli/DubaiCarAPP.git"
+  },
+  "bugs": {
+    "url": "https://github.com/magicyuli/DubaiCarAPP/issues"
+  },
+  "homepage": "https://github.com/magicyuli/DubaiCarAPP",
+  "android": {
+    "v8Flags": "--expose_gc"
+  }
+}

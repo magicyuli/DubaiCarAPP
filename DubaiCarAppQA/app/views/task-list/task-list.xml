@@ -1,0 +1,16 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd"
+      actionBarHidden="false" backgroundSpanUnderStatusBar="false" id="list-page" loaded="onLoad">
+
+    <ListView items="{{ taskItems }}">
+        <ListView.itemTemplate>
+            <GridLayout rows="*, *" columns="*, *, *" tap="onTap">
+                <Label text="{{ userId }}" row="0" col="0" />
+                <Label text="{{ taskId }}" row="0" col="1" />
+                <Label text="{{ time }}" row="0" col="2" />
+                <Label text="{{ location }}" row="1" col="0" />
+                <Label text="{{ contact }}" row="1" col="1" />
+                <Label text="{{ model }}" row="1" col="2" />
+            </GridLayout>
+        </ListView.itemTemplate>
+    </ListView>
+</Page>

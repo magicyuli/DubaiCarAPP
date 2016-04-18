@@ -1,0 +1,11 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd"
+      navigatedTo="onNavigatedTo">
+    <StackLayout>
+        <Label text="{{ userId }}" />
+        <Label text="{{ taskId }}" />
+        <Label text="{{ time }}" />
+        <Label text="{{ location }}" />
+        <Label text="{{ contact }}" />
+        <Label text="{{ model }}" />
+    </StackLayout>
+</Page>
