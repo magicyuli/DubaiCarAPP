@@ -1,11 +1,35 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd"
       navigatedTo="onNavigatedTo">
-    <StackLayout>
-        <Label text="{{ userId }}" />
-        <Label text="{{ taskId }}" />
-        <Label text="{{ time }}" />
-        <Label text="{{ location }}" />
-        <Label text="{{ contact }}" />
-        <Label text="{{ model }}" />
-    </StackLayout>
+    <ScrollView>
+        <StackLayout>
+            <Label class="heading" text="User"/>
+            <Label text="{{ userId }}"/>
+
+            <Label class="heading" text="Task ID"/>
+            <Label text="{{ taskId }}"/>
+
+            <Label class="heading" text="Scheduled QA Time"/>
+            <Label text="{{ qaTime }}"/>
+
+            <Label class="heading" text="Location"/>
+            <Label text="{{ location }}"/>
+
+            <Label class="heading" text="Contact"/>
+            <Label text="{{ contact }}"/>
+
+            <Label class="heading" text="Model"/>
+            <Label text="{{ model }}"/>
+
+            <Label class="heading" text="Mileage"/>
+            <Label text="{{ mileage }}"/>
+
+            <Label class="heading" text="Year"/>
+            <Label text="{{ year }}"/>
+
+            <Label class="heading" text="Color"/>
+            <Label text="{{ color }}" backgroundColor="{{ color }}"/>
+
+            <Button text="Start QA" tap="onStartTap"/>
+        </StackLayout>
+    </ScrollView>
 </Page>

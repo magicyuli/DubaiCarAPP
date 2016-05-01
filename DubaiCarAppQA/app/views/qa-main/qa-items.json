@@ -1,0 +1,58 @@
+[
+  {
+    "description": "Has head",
+    "passed": false
+  },
+  {
+    "description": "Has tail",
+    "passed": false
+  },
+  {
+    "description": "Has roof",
+    "passed": false
+  },
+  {
+    "description": "Has wheels",
+    "passed": false
+  },
+  {
+    "description": "Has windshield",
+    "passed": false
+  },
+  {
+    "description": "Has gas",
+    "passed": true
+  },
+  {
+    "description": "Has break",
+    "passed": false
+  },
+  {
+    "description": "Has doors",
+    "passed": true
+  },
+  {
+    "description": "Has clutch",
+    "passed": true
+  },
+  {
+    "description": "Has seats",
+    "passed": false
+  },
+  {
+    "description": "Has seat belt",
+    "passed": true
+  },
+  {
+    "description": "Has carpet",
+    "passed": true
+  },
+  {
+    "description": "Has fridge",
+    "passed": true
+  },
+  {
+    "description": "Has TV",
+    "passed": true
+  }
+]

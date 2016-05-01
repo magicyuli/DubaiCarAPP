@@ -6,10 +6,10 @@ var dialogsModule = require("ui/dialogs");
 var request = require("../utils/request");
 var configs = require("../configs");
 
-function Task(taskId, userId, time, location, contact, model) {
+function Task(taskId, userId, qaTime, location, contact, model) {
     this.userId = userId;
     this.taskId = taskId;
-    this.time = time;
+    this.qaTime = qaTime;
     this.location = location;
     this.contact = contact;
     this.model = model;
@@ -20,12 +20,30 @@ Task.prototype.devInspect = function () {
         message: [
             "You've tapped on task: ",
             this.taskId,
-            this.time,
+            this.qaTime,
             this.location,
             this.contact,
             this.model
-            ].join("\n"),
+        ].join("\n"),
         okButtonText: "GOT IT"
+    });
+};
+
+Task.prototype.load = function () {
+    if (typeof this.taskId === "undefined") {
+        return;
+    }
+
+    var that = this;
+
+    request.get(configs.urls.getTaskDetail + this.taskId, {}).then(function (response) {
+        return response.json();
+    }).then(function (data) {
+        for (var key in data) {
+            if (data.hasOwnProperty(key)) {
+                that[key] = data[key];
+            }
+        }
     });
 };
 
@@ -39,20 +57,25 @@ TaskList.prototype = Object.create(ObservableArray.prototype, {
         value: function () {
             var that = this;
 
-            if (!configs.dev) {
-                request.get(configs.urls.getAllTasks + this.userId, {}, function (response) {
-                    return response.json();
-                }, function (data) {
-                    that.concat(data);
-                });
-            }
-            else {
-                that.push([
-                    new Task(1, this.userId, Date.now(), "Pitts", "123465", "ABS"),
-                    new Task(2, this.userId, Date.now(), "Pitts", "124124", "DV"),
-                    new Task(3, this.userId, Date.now(), "Pitts", "322333", "EQV")
-                ]);
-            }
+            request.get(configs.urls.getAllTasks + this.userId, {}).then(function (response) {
+                return response.json();
+            }).then(function (data) {
+                if (Array.isArray(data)) {
+                    data.forEach(function (item) {
+                        that.push(new Task(
+                            item.taskId,
+                            that.userId,
+                            item.qaTime,
+                            item.location,
+                            item.contact,
+                            item.model
+                        ));
+                    });
+                }
+                else {
+                    console.error("Load task list didn't return an array.")
+                }
+            });
         },
         enumerable: false,
         configurable: false,
@@ -62,4 +85,7 @@ TaskList.prototype = Object.create(ObservableArray.prototype, {
 
 TaskList.prototype.constructor = TaskList;
 
-exports.TaskList = TaskList;
+module.exports = {
+    TaskList: TaskList,
+    Task: Task
+};

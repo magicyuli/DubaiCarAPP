@@ -11,5 +11,11 @@ module.exports = {
             moduleName: "views/basic-info/basic-info",
             context: context
         });
+    },
+    goToQAMainPage: function (context) {
+        frame.topmost().navigate({
+            moduleName: "views/qa-main/qa-main",
+            context: context
+        });
     }
 };

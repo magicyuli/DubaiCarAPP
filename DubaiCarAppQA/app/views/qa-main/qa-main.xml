@@ -1,0 +1,55 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd"
+      navigatedTo="onNavigatedTo">
+    <TabView>
+        <TabView.items>
+
+            <TabViewItem title="Dimples">
+                <TabViewItem.view>
+                    <ScrollView id="dimpleView">
+                        <AbsoluteLayout id="dimpleLayout">
+                            <Image src="~/car_diagram_ext_2door.png"
+                                   longPress="onDimpleLongPress" />
+                        </AbsoluteLayout>
+                    </ScrollView>
+                </TabViewItem.view>
+            </TabViewItem>
+
+            <TabViewItem title="Items">
+                <TabViewItem.view>
+                    <ScrollView>
+                        <ListView items="{{ qaItems }}">
+                            <ListView.itemTemplate>
+                                <GridLayout columns="*, auto">
+                                    <Label text="{{ description }}" col="0" />
+                                    <Switch checked="{{ passed }}" col="1" />
+                                </GridLayout>
+                            </ListView.itemTemplate>
+                        </ListView>
+                    </ScrollView>
+                </TabViewItem.view>
+            </TabViewItem>
+
+            <TabViewItem title="Exhibits">
+                <TabViewItem.view>
+                    <ScrollView>
+                        <StackLayout>
+                            <Label text="Many pictures!!"/>
+                        </StackLayout>
+                    </ScrollView>
+                </TabViewItem.view>
+            </TabViewItem>
+
+            <TabViewItem title="Sign it">
+                <TabViewItem.view>
+                    <ScrollView>
+                        <StackLayout>
+                            <TextField hint="Sign me!"/>
+                        </StackLayout>
+                    </ScrollView>
+                </TabViewItem.view>
+            </TabViewItem>
+
+        </TabView.items>
+    </TabView>
+
+</Page>

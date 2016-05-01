@@ -5,6 +5,7 @@
 module.exports = {
     dev: true,
     urls: {
-        getAllTasks: "/?userId="
+        getAllTasks: "/task/list/?userId=",
+        getTaskDetail: "/task/detail/?taskId="
     }
 };
