@@ -28,7 +28,7 @@ function onDimpleTouch(args) {
     view.off("touch");
 
     if (configs.dev) {
-        console.log([x, y, viewWidth, viewHeight].join("      "));
+        console.log([x, y, viewWidth, viewHeight].join("       "));
         console.log(absoluteLayout.id);
     }
 
@@ -59,7 +59,7 @@ module.exports = {
 
         page.bindingContext = context;
     },
-    onDimpleLongPress: function (args) {
+    onDimpleDoubleTap: function (args) {
         var view = args.view;
 
         view.on("touch", onDimpleTouch);
