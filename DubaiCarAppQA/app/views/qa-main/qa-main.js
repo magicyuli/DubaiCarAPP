@@ -8,29 +8,40 @@ var imageSourceModule = require("image-source");
 var configs = require("~/shared/configs");
 var taskModel = require("~/shared/models/task-model");
 var qaItems = require("./qa-items.json");
+var overlapPhotoWidget = require("~/shared/widgets/overlapping-photo-widget");
 var inspect = require("~/shared/utils/objectInspector").inspect;
 
 
 var screenWidth = platformModule.screen.mainScreen.widthDIPs;
+var screenHeight = platformModule.screen.mainScreen.heightDIPs;
+
+var overlapLayer = overlapPhotoWidget.create(screenWidth, screenHeight, 240, 320, null, function () {
+    dialogsModule.alert("Camera tapped!");
+});
+
+function onDimpleTap(args) {
+    var dimpleAbsoluteLayout = args.view.parent;
+
+    overlapLayer.setImgSource("~/flaw.jpg");
+
+    dimpleAbsoluteLayout.addChild(overlapLayer.mask);
+    dimpleAbsoluteLayout.addChild(overlapLayer.overlapView);
+}
 
 
-function onDimpleTouch(args) {
+function onPicTouch(args) {
     var view = args.view;
-    var absoluteLayout = view.parent;
+    var dimpleAbsoluteLayout = view.parent;
     var viewWidth = screenWidth;
     var viewHeight = view.getMeasuredHeight()
         * screenWidth / view.getMeasuredWidth();
     var x = args.getX();
     var y = args.getY();
-    var posX = x / viewHeight;
+    // TODO: save these
+    var posX = x / viewWidth;
     var posY = y / viewHeight;
 
     view.off("touch");
-
-    if (configs.dev) {
-        console.log([x, y, viewWidth, viewHeight].join("       "));
-        console.log(absoluteLayout.id);
-    }
 
     dialogsModule.confirm("Add a dimple? At " + x + " " + y).then(function (yes) {
         if (yes) {
@@ -39,10 +50,11 @@ function onDimpleTouch(args) {
             dimpleImg.imageSource = imageSourceModule.fromFile("~/ico_dimple.png");
             dimpleImg.height = 19;
             dimpleImg.width = 19;
+            dimpleImg.on("tap", onDimpleTap);
 
             absoluteLayoutModule.AbsoluteLayout.setLeft(dimpleImg, x - 19 / 2);
             absoluteLayoutModule.AbsoluteLayout.setTop(dimpleImg, y - 19 / 2);
-            absoluteLayout.addChild(dimpleImg);
+            dimpleAbsoluteLayout.addChild(dimpleImg);
         }
     });
 
@@ -59,9 +71,9 @@ module.exports = {
 
         page.bindingContext = context;
     },
-    onDimpleDoubleTap: function (args) {
+    onPicDoubleTap: function (args) {
         var view = args.view;
 
-        view.on("touch", onDimpleTouch);
+        view.on("touch", onPicTouch);
     }
 };

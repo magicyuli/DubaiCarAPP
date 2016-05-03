@@ -8,7 +8,7 @@
                     <ScrollView id="dimpleView">
                         <AbsoluteLayout id="dimpleLayout">
                             <Image src="~/car_diagram_ext_2door.png"
-                                   doubleTap="onDimpleDoubleTap" />
+                                   doubleTap="onPicDoubleTap" />
                         </AbsoluteLayout>
                     </ScrollView>
                 </TabViewItem.view>
