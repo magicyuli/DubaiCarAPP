@@ -1,4 +1,12 @@
 Label {
-    height: 30;
-    padding: 5 0 0 10;
+    padding-left: 10;
+    font-size: 15;
+}
+
+Label.loc {
+    font-weight: bold;
+    font-size: 18;
+    color: #000000;
+    padding-top: 10;
+    padding-bottom: 5;
 }

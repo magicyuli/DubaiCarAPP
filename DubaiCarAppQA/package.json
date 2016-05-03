@@ -1,6 +1,7 @@
 {
 	"nativescript": {
-		"id": "org.nativescript.DubaiCarAppQA",
+		"id": "com.onedubaionline.Solid",
+		"version": "1.0",
 		"tns-android": {
 			"version": "1.7.1"
 		}

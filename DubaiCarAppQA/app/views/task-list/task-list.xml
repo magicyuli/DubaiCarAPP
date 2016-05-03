@@ -3,13 +3,10 @@
 
     <ListView items="{{ taskItems }}">
         <ListView.itemTemplate>
-            <GridLayout rows="*, *" columns="*, *, *" tap="onTap">
-                <Label text="{{ userId }}" row="0" col="0" />
-                <Label text="{{ taskId }}" row="0" col="1" />
-                <Label text="{{ qaTime }}" row="0" col="2" />
-                <Label text="{{ location }}" row="1" col="0" />
-                <Label text="{{ contact }}" row="1" col="1" />
-                <Label text="{{ model }}" row="1" col="2" />
+            <GridLayout rows="*, *" columns="auto, *" tap="onTap" padding="7 10">
+                <Image src="{{ brandThumbnail }}" rowspan="2" col="0" stretch="aspectFit" width="60" />
+                <Label class="loc" text="{{ location }}" row="0" col="1" />
+                <Label text="{{ qaTime }}" row="1" col="1" />
             </GridLayout>
         </ListView.itemTemplate>
     </ListView>

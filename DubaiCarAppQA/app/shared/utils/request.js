@@ -26,23 +26,26 @@ if (config.dev) {
                     {
                         taskId: 1,
                         qaTime: "2016-04-01 12:00:00",
-                        location: "Pitts",
-                        contact: "123465",
-                        model: "ABS"
+                        location: "25 42 B St, Dubai, UAE",
+                        contact: "+971-50-5948721",
+                        model: "Jaguar XF",
+                        brandThumbnail: "~/jaguar_logo.png"
                     },
                     {
                         taskId: 2,
                         qaTime: "2016-04-11 12:00:00",
-                        location: "Pitts",
-                        contact: "124124",
-                        model: "DV"
+                        location: "23 26b St, Dubai, UAE",
+                        contact: "+971-52-4873115",
+                        model: "Maserati GranTurismo",
+                        brandThumbnail: "~/maserati_logo.png"
                     },
                     {
                         taskId: 3,
                         qaTime: "2016-02-01 12:00:00",
-                        location: "Pitts",
-                        contact: "322333",
-                        model: "EQV"
+                        location: "Jumeirah Park, Dubai, UAE",
+                        contact: "+971-51-4789967",
+                        model: "Toyota Prius",
+                        brandThumbnail: "~/toyota_logo.png"
                     }
                 ];
             }
@@ -51,30 +54,33 @@ if (config.dev) {
                     1: {
                         taskId: 1,
                         qaTime: "2016-04-01 12:00:00",
-                        location: "Pitts",
-                        contact: "123465",
-                        model: "ABS",
-                        mileage: 19222,
+                        location: "25 42 B St, Dubai, UAE",
+                        contact: "+971-50-5948721",
+                        model: "Jaguar XF",
+                        brandThumbnail: "~/jaguar_logo.png",
+                        mileage: 99222,
                         year: 2010,
                         color: "#12345f"
                     },
                     2: {
                         taskId: 2,
                         qaTime: "2016-04-09 12:00:00",
-                        location: "Pitts",
-                        contact: "124124",
-                        model: "DV",
-                        mileage: 13222,
+                        location: "23 26b St, Dubai, UAE",
+                        contact: "+971-52-4873115",
+                        model: "Maserati GranTurismo",
+                        brandThumbnail: "~/maserati_logo.png",
+                        mileage: 103222,
                         year: 2003,
                         color: "#ac45bc"
                     },
                     3: {
                         taskId: 3,
                         qaTime: "2016-04-11 12:30:00",
-                        location: "Pitts",
-                        contact: "322333",
-                        model: "EQV",
-                        mileage: 99222,
+                        location: "Jumeirah Park, Dubai, UAE",
+                        contact: "+971-51-4789967",
+                        model: "Toyota Prius",
+                        brandThumbnail: "~/toyota_logo.png",
+                        mileage: 19222,
                         year: 2015,
                         color: "#42345f"
                     }

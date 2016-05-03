@@ -6,13 +6,14 @@ var dialogsModule = require("ui/dialogs");
 var request = require("../utils/request");
 var configs = require("../configs");
 
-function Task(taskId, userId, qaTime, location, contact, model) {
+function Task(taskId, userId, qaTime, location, contact, model, brandThumbnail) {
     this.userId = userId;
     this.taskId = taskId;
     this.qaTime = qaTime;
     this.location = location;
     this.contact = contact;
     this.model = model;
+    this.brandThumbnail = brandThumbnail;
 }
 
 Task.prototype.devInspect = function () {
@@ -68,7 +69,8 @@ TaskList.prototype = Object.create(ObservableArray.prototype, {
                             item.qaTime,
                             item.location,
                             item.contact,
-                            item.model
+                            item.model,
+                            item.brandThumbnail
                         ));
                     });
                 }
