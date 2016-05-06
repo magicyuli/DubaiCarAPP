@@ -11,6 +11,7 @@ Label {
 Label.heading {
     margin-top: 10;
     font-weight: bold;
+    color: black;
 }
 
 button {

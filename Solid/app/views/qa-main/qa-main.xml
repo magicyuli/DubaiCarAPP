@@ -5,10 +5,10 @@
 
             <TabViewItem title="Dimples">
                 <TabViewItem.view>
-                    <ScrollView id="dimpleView">
+                    <ScrollView id="dimpleScrollView">
                         <AbsoluteLayout id="dimpleLayout">
                             <Image src="~/car_diagram_ext_2door.png"
-                                   doubleTap="onPicDoubleTap" />
+                                   doubleTap="onDimplePicDoubleTap" />
                         </AbsoluteLayout>
                     </ScrollView>
                 </TabViewItem.view>
@@ -31,10 +31,11 @@
 
             <TabViewItem title="Exhibits">
                 <TabViewItem.view>
-                    <ScrollView>
-                        <StackLayout>
-                            <Label text="Many pictures!!"/>
-                        </StackLayout>
+                    <ScrollView id="standardPhotoScrollView">
+                        <GridLayout rows="*, *, *, *, *, *, *, *, *, *, *, *, *, *"
+                                    columns="*, *"
+                                    id="standardPhotosContainer">
+                        </GridLayout>
                     </ScrollView>
                 </TabViewItem.view>
             </TabViewItem>
